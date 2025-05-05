@@ -43,3 +43,8 @@ install_skel_files_for_root() {
     cp -a ${IMAGE_ROOTFS}${sysconfdir}/skel/. ${IMAGE_ROOTFS}/home/root/
 }
 ROOTFS_POSTPROCESS_COMMAND += "install_skel_files_for_root; "
+
+add_coordinator_dns_entry() {
+    echo "192.168.178.157 coordinator.fritz.box" >> ${IMAGE_ROOTFS}/etc/hosts
+}
+ROOTFS_POSTPROCESS_COMMAND += "add_coordinator_dns_entry;"
