@@ -34,6 +34,7 @@ IMAGE_INSTALL:append = " \
   \
   rsync \
   \
+  overlayfs-home \
 "
 
 install_skel_files_for_root() {
