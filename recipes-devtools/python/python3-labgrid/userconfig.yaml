@@ -1,0 +1,32 @@
+
+## The default configuration I use for the Raspberry Pi 4 uses Keystone
+## Shield GPIOs which are connected to GPIO4, GPIO22, GPIO6 and GPIO26.
+## Note: The base offset of the rpi gpio chip is 512. This has to be added
+## to the GPIO number to get the sysfs GPIO number.
+{% set rpi-relay-gpios = namespace(pins=[
+        ('relay1',   '516'),
+        ('relay2',   '534'),
+        ('relay3',   '518'),
+        ('relay4',   '538')]) %}
+
+{% for name, index in rpi-relay-gpios %}
+rpi-{{name}}:
+  SysfsGPIO:
+    index: {{index}}
+{% endfor %}
+
+
+## Example for using an USB hub.
+## The usb.ports variable is used in configuration.yaml to set up common
+## USB peripheral matches on all listed ports.
+## This snippet removes direct matches on port three of the Raspberry Pi
+## and instead matches on each port of a hub connected to port three:
+##
+##{% set usb.ports = [
+##        ('1',   'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.1'),
+##        ('2',   'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2'),
+##        ('3',   'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.3'),
+##        ('4-1', 'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1'),
+##        ('4-2', 'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.2'),
+##        ('4-3', 'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.3'),
+##        ('4-4', 'platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.4')] %}
