@@ -34,6 +34,8 @@ IMAGE_INSTALL:append = " \
   \
   rsync \
   \
+  imx-uuu \
+  \
   overlayfs-home \
 "
 
