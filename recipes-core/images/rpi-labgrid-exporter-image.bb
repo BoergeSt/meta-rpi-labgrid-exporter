@@ -3,6 +3,8 @@ LICENSE = "MIT"
 
 inherit core-image
 
+IMAGE_FEATURES  += " overlayfs-etc "
+
 IMAGE_INSTALL:append = " \
   networkmanager \
   networkmanager-nmcli \
