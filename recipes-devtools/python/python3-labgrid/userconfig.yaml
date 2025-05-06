@@ -9,7 +9,7 @@
         ('relay3',   '518'),
         ('relay4',   '538')]) %}
 
-{% for name, index in rpi-relay-gpios %}
+{% for name, index in rpi-relay-gpios.pins %}
 rpi-{{name}}:
   SysfsGPIO:
     index: {{index}}
