@@ -62,7 +62,7 @@ rpi-usb-ports-p{{idx}}:
       '@ID_PATH': '{{sysfs}}'
 
 ## Extra USB Ports exported as separate interfaces on the same USB port
-{% for if in [ '1', '2', '3'] %}
+{% for if in [ '1', '2', '3','4','5','6'] %}
 rpi-usb-ports-p{{idx}}.{{if}}:
   USBSerialPort:
     match:
