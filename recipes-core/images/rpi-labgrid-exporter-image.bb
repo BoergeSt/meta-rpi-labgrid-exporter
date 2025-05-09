@@ -38,6 +38,8 @@ IMAGE_INSTALL:append = " \
   \
   imx-uuu \
   \
+  iproute2 \
+  \
   overlayfs-home \
 "
 
