@@ -37,6 +37,7 @@ IMAGE_INSTALL:append = " \
   rsync \
   \
   imx-uuu \
+  hid-ft260-mod \
   \
   iproute2 \
   \
