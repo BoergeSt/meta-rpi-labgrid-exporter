@@ -3,13 +3,13 @@
 ## Shield GPIOs which are connected to GPIO4, GPIO22, GPIO6 and GPIO26.
 ## Note: The base offset of the rpi gpio chip is 512. This has to be added
 ## to the GPIO number to get the sysfs GPIO number.
-{% set rpi-relay-gpios = namespace(pins=[
+{% set rpi_relay_gpios = namespace(pins=[
         ('relay1',   '516'),
         ('relay2',   '534'),
         ('relay3',   '518'),
         ('relay4',   '538')]) %}
 
-{% for name, index in rpi-relay-gpios.pins %}
+{% for name, index in rpi_relay_gpios.pins %}
 rpi-{{name}}:
   SysfsGPIO:
     index: {{index}}
